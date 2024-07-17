@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Criar Registo</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" name="nome" class="form-control mb-3" placeholder="Nome da Tarefa..." formControlName="nome" required/>
+
+    @if (submitted && f['nome'].errors) {
+      <div class="alert alert-danger" role="alert">
+        Insira o nome da tarefa!
+      </div>
+    }
+    <input type="submit" value="Send" />
+  </form>
+</div>

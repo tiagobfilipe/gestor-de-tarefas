@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Estado</th>
+      <th style="text-align: center">
+        <a [routerLink]="['/tarefas/registo']" class="btn btn-xs btn-success">Novo</a>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (tarefa of tarefas; track $index){
+      <tr>
+        <td [class.bg-success]="tarefa.concluida">{{tarefa.nome}}</td>
+        <td [class.bg-success]="tarefa.concluida"><input type="checkbox" (click)="atualizar(tarefa.id)" [value]="tarefa.concluida" [checked]="tarefa.concluida"/></td>
+        <td [class.bg-success]="tarefa.concluida">
+          <a class="btn btn-xs btn-secondary m-2" (click)="navigateTo(tarefa.id)">Editar</a>
+          <a class="btn btn-xs btn-danger m-2" (click)="remover(tarefa.id)">Remover</a>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
